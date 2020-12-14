@@ -5,13 +5,13 @@ import org.hamcrest.TypeSafeMatcher;
 import org.hamcrest.Matcher;
 import org.hamcrest.Description;
 
-public class PointCloseTo extends TypeSafeMatcher<Point3D> {
+public class FxPointCloseTo extends TypeSafeMatcher<Point3D> {
 
 	private final Point3D expected;
 
 	private final double delta;
 
-	public PointCloseTo( Point3D expected, double error ) {
+	public FxPointCloseTo( Point3D expected, double error ) {
 		this.expected = expected;
 		this.delta = error;
 	}
@@ -40,7 +40,7 @@ public class PointCloseTo extends TypeSafeMatcher<Point3D> {
 	}
 
 	public static Matcher<Point3D> closeTo( Point3D operand, double error ) {
-		return new PointCloseTo( operand, error );
+		return new FxPointCloseTo( operand, error );
 	}
 
 }
