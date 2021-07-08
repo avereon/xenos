@@ -63,7 +63,7 @@
 			<groupId>org.testfx</groupId>
 			<artifactId>testfx-core</artifactId>
 			<version>${testfx.version}</version>
-			<scope>compile</scope>
+			<scope>provided</scope>
 			<exclusions>
 				<!-- Exclude the openjfx libraries, they are already available -->
 				<exclusion>
@@ -96,7 +96,7 @@
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>${junit.version}</version>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
