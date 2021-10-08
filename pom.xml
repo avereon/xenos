@@ -11,11 +11,11 @@
 	</parent>
 
 	<groupId>com.avereon</groupId>
-	<artifactId>zarra</artifactId>
+	<artifactId>zerra</artifactId>
 	<version>0.6</version>
 	<packaging>jar</packaging>
 
-	<name>Zarra</name>
+	<name>Zerra</name>
 	<description>UX test utility library</description>
 	<inceptionYear>2020</inceptionYear>
 
