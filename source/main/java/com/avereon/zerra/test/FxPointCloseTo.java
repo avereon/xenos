@@ -1,4 +1,4 @@
-package com.avereon.zarra.test;
+package com.avereon.zerra.test;
 
 import javafx.geometry.Point3D;
 import org.hamcrest.TypeSafeMatcher;

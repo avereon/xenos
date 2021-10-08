@@ -1,4 +1,4 @@
-module com.avereon.zarra {
+module com.avereon.zerra {
 
 	requires transitive org.junit.jupiter.api;
 	requires transitive org.testfx;
@@ -6,6 +6,6 @@ module com.avereon.zarra {
 	requires javafx.graphics;
 	requires org.hamcrest;
 
-	exports com.avereon.zarra.test;
+	exports com.avereon.zerra.test;
 
 }

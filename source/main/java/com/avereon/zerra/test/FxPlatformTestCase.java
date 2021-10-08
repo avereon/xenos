@@ -1,4 +1,4 @@
-package com.avereon.zarra.test;
+package com.avereon.zerra.test;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.testfx.framework.junit5.ApplicationTest;
