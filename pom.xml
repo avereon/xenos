@@ -12,7 +12,7 @@
 
 	<groupId>com.avereon</groupId>
 	<artifactId>zerra</artifactId>
-	<version>0.7</version>
+	<version>0.8-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Zerra</name>
@@ -47,7 +47,7 @@
 
 		<!-- Version numbers updated 02 Jul 2020 -->
 		<!-- Runtime dependencies -->
-		<openjfx.version>14.0.1</openjfx.version>
+		<openjfx.version>17.0.0.1</openjfx.version>
 		<testfx.version>4.0.16-alpha</testfx.version>
 	</properties>
 
