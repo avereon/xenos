@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>com.avereon.pom</groupId>
 		<artifactId>jar</artifactId>
-		<version>3.2.0</version>
+		<version>3.3.1</version>
 	</parent>
 
 	<groupId>com.avereon</groupId>
@@ -47,11 +47,18 @@
 
 		<!-- Version numbers updated 02 Jul 2020 -->
 		<!-- Runtime dependencies -->
-		<openjfx.version>17.0.0.1</openjfx.version>
-		<testfx.version>4.0.16-alpha</testfx.version>
+		<zevra.version>[0.8-SNAPSHOT,)</zevra.version>
+		<openjfx.version>[14.0,)</openjfx.version>
+		<testfx.version>[4.0,)</testfx.version>
 	</properties>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>com.avereon</groupId>
+			<artifactId>zevra</artifactId>
+			<version>${zevra.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.openjfx</groupId>
