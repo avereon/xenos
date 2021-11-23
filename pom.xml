@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 
@@ -47,7 +48,7 @@
 
 		<!-- Version numbers updated 02 Jul 2020 -->
 		<!-- Runtime dependencies -->
-		<zevra.version>[0.8-SNAPSHOT,)</zevra.version>
+		<xenon.version>[0.8-SNAPSHOT,)</xenon.version>
 		<openjfx.version>[14.0,)</openjfx.version>
 		<testfx.version>[4.0,)</testfx.version>
 	</properties>
@@ -56,14 +57,28 @@
 
 		<dependency>
 			<groupId>com.avereon</groupId>
-			<artifactId>zevra</artifactId>
-			<version>${zevra.version}</version>
+			<artifactId>xenon</artifactId>
+			<version>${xenon.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.openjfx</groupId>
-			<artifactId>javafx-controls</artifactId>
-			<version>${openjfx.version}</version>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>${assertj.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!--		<dependency>-->
+		<!--			<groupId>org.openjfx</groupId>-->
+		<!--			<artifactId>javafx-controls</artifactId>-->
+		<!--			<version>${openjfx.version}</version>-->
+		<!--		</dependency>-->
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.version}</version>
+			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
@@ -77,6 +92,11 @@
 					<groupId>org.openjfx</groupId>
 					<artifactId>*</artifactId>
 				</exclusion>
+<!--				&lt;!&ndash; Exclude hamcrest &ndash;&gt;-->
+<!--				<exclusion>-->
+<!--					<groupId>org.hamcrest</groupId>-->
+<!--					<artifactId>*</artifactId>-->
+<!--				</exclusion>-->
 			</exclusions>
 		</dependency>
 
@@ -97,13 +117,6 @@
 					<artifactId>*</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-engine</artifactId>
-			<version>${junit.version}</version>
-			<scope>provided</scope>
 		</dependency>
 
 	</dependencies>
