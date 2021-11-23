@@ -7,7 +7,6 @@ import com.avereon.util.*;
 import com.avereon.xenon.Profile;
 import com.avereon.xenon.Program;
 import com.avereon.xenon.ProgramEvent;
-import com.avereon.xenon.test.ProgramTestConfig;
 import com.avereon.xenon.workpane.Workpane;
 import com.avereon.xenon.workpane.WorkpaneEvent;
 import com.avereon.zarra.event.FxEventWatcher;
