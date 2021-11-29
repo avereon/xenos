@@ -13,6 +13,6 @@ module com.avereon.zerra {
 	requires java.logging;
 	requires javafx.graphics;
 
-	exports com.avereon.zerra.test;
+	//exports com.avereon.zerra.test;
 
 }
