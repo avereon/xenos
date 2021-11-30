@@ -3,6 +3,8 @@ package com.avereon.zerra;
 import com.avereon.product.ProductCard;
 import com.avereon.xenon.Mod;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class BaseModUiTestCase extends BaseXenonUiTestCase{
 
 	private Mod mod;
@@ -11,7 +13,7 @@ public class BaseModUiTestCase extends BaseXenonUiTestCase{
 		this.mod = getProgram().getProductManager().getMod( card.getProductKey() );
 
 		getProgram().getProductManager().setModEnabled( card, true );
-		//Assertions.assertThat( getProgram().getProductManager().isEnabled( card ) ).withFailMessage( "Module not ready for testing: " + mod ).isTrue();
+		assertThat( getProgram().getProductManager().isEnabled( card ) ).withFailMessage( "Module not ready for testing: " + mod ).isTrue();
 	}
 
 	protected Mod getMod() {
