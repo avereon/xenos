@@ -6,6 +6,12 @@ import org.junit.jupiter.api.BeforeEach;
 
 import java.util.logging.Level;
 
+/**
+ * This class is a duplicate of com.avereon.xenon.BaseXenonTestCase which is
+ * not visible due to the fact it is in the test folder. Attempts at making the
+ * class publicly available have run in to various challenges with the most
+ * recent being with Surefire not putting JUnit 5 on the module path.
+ */
 public class BaseXenonTestCase {
 
 	protected Program program;

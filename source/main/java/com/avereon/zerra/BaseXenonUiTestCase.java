@@ -26,6 +26,12 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * This class is a duplicate of com.avereon.xenon.BaseXenonUiTestCase which is
+ * not visible due to the fact it is in the test folder. Attempts at making the
+ * class publicly available have run in to various challenges with the most
+ * recent being with Surefire not putting JUnit 5 on the module path.
+ */
 public class BaseXenonUiTestCase extends ApplicationTest {
 
 	private Program program;
