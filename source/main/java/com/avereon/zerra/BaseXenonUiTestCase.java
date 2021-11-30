@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
  * class publicly available have run in to various challenges with the most
  * recent being with Surefire not putting JUnit 5 on the module path.
  */
-public class BaseXenonUiTestCase extends ApplicationTest {
+public abstract class BaseXenonUiTestCase extends ApplicationTest {
 
 	private Program program;
 

@@ -5,7 +5,7 @@ import com.avereon.xenon.Mod;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BaseModUiTestCase extends BaseXenonUiTestCase{
+public abstract class BaseModUiTestCase extends BaseXenonUiTestCase{
 
 	private Mod mod;
 

@@ -1,3 +1,3 @@
 package com.avereon.zerra;
 
-public class BaseModTestCase extends BaseXenonTestCase {}
+public abstract class BaseModTestCase extends BaseXenonTestCase {}
