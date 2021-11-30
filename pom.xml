@@ -92,11 +92,6 @@
 					<groupId>org.openjfx</groupId>
 					<artifactId>*</artifactId>
 				</exclusion>
-<!--				&lt;!&ndash; Exclude hamcrest &ndash;&gt;-->
-<!--				<exclusion>-->
-<!--					<groupId>org.hamcrest</groupId>-->
-<!--					<artifactId>*</artifactId>-->
-<!--				</exclusion>-->
 			</exclusions>
 		</dependency>
 
