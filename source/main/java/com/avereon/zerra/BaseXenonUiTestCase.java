@@ -152,6 +152,8 @@ public abstract class BaseXenonUiTestCase extends ApplicationTest {
 	}
 
 	private void assertSafeMemoryProfile() {
+		if( initialMemoryUse == 0 ) return;
+
 		long increaseSize = finalMemoryUse - initialMemoryUse;
 		System.out.printf( "Memory use: %s - %s = %s%n", FileUtil.getHumanSizeBase2( finalMemoryUse ), FileUtil.getHumanSizeBase2( initialMemoryUse ), FileUtil.getHumanSizeBase2( increaseSize ) );
 
