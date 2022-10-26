@@ -49,7 +49,7 @@
 		<!-- Version numbers updated 02 Jul 2020 -->
 		<!-- Runtime dependencies -->
 		<xenon.version>[0.8-SNAPSHOT,)</xenon.version>
-		<openjfx.version>[14.0,)</openjfx.version>
+		<openjfx.version>[17.0,)</openjfx.version>
 		<testfx.version>[4.0,)</testfx.version>
 	</properties>
 
