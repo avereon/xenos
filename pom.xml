@@ -13,7 +13,7 @@
 
 	<groupId>com.avereon</groupId>
 	<artifactId>zerra</artifactId>
-	<version>0.8-SNAPSHOT</version>
+	<version>0.8</version>
 	<packaging>jar</packaging>
 
 	<name>Zerra</name>
@@ -48,7 +48,7 @@
 
 		<!-- Version numbers updated 02 Jul 2020 -->
 		<!-- Runtime dependencies -->
-		<xenon.version>[0.8-SNAPSHOT,)</xenon.version>
+		<xenon.version>[1.6,)</xenon.version>
 		<openjfx.version>[17.0,)</openjfx.version>
 		<testfx.version>[4.0,)</testfx.version>
 	</properties>
