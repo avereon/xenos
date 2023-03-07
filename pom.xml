@@ -8,12 +8,12 @@
 	<parent>
 		<groupId>com.avereon.pom</groupId>
 		<artifactId>jar</artifactId>
-		<version>3.3.4</version>
+		<version>3.5.0</version>
 	</parent>
 
 	<groupId>com.avereon</groupId>
 	<artifactId>zerra</artifactId>
-	<version>0.8</version>
+	<version>0.9-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Zerra</name>
@@ -38,6 +38,8 @@
 	</repositories>
 
 	<properties>
+		<!-- Version numbers updated 07 Mar 2023 -->
+
 		<product-name>${project.name}</product-name>
 		<product-identifier>${project.artifactId}</product-identifier>
 		<project-timestamp>${maven.build.timestamp}</project-timestamp>
@@ -46,10 +48,9 @@
 		<!-- Keep consistent with the CI pipeline -->
 		<java.version>17</java.version>
 
-		<!-- Version numbers updated 02 Jul 2020 -->
 		<!-- Runtime dependencies -->
 		<xenon.version>[1.6,)</xenon.version>
-		<openjfx.version>[17.0,)</openjfx.version>
+		<openjfx.version>[19.0,)</openjfx.version>
 		<testfx.version>[4.0,)</testfx.version>
 	</properties>
 
