@@ -14,5 +14,4 @@ module com.avereon.zerra {
 	requires javafx.graphics;
 
 	exports com.avereon.zerra;
-
 }
