@@ -5,7 +5,7 @@ import com.avereon.log.Log;
 import com.avereon.product.ProductCard;
 import com.avereon.util.*;
 import com.avereon.xenon.Profile;
-import com.avereon.xenon.Program;
+import com.avereon.xenon.Xenon;
 import com.avereon.xenon.ProgramEvent;
 import com.avereon.xenon.test.ProgramTestConfig;
 import com.avereon.xenon.workpane.Workpane;
@@ -34,7 +34,7 @@ import java.util.concurrent.TimeUnit;
  */
 public abstract class BaseXenonUiTestCase extends ApplicationTest {
 
-	private Program program;
+	private Xenon program;
 
 	private EventWatcher programWatcher;
 
@@ -54,7 +54,7 @@ public abstract class BaseXenonUiTestCase extends ApplicationTest {
 	protected void setup() throws Exception {
 		// Remove the existing program data folder
 		String suffix = "-" + Profile.TEST;
-		ProductCard metadata = ProductCard.info( Program.class );
+		ProductCard metadata = ProductCard.info( Xenon.class );
 		Path programDataFolder = OperatingSystem.getUserProgramDataFolder( metadata.getArtifact() + suffix, metadata.getName() + suffix );
 		Assertions.assertThat( aggressiveDelete( programDataFolder ) ).withFailMessage( "Failed to delete program data folder" ).isTrue();
 
@@ -64,7 +64,7 @@ public abstract class BaseXenonUiTestCase extends ApplicationTest {
 		//
 		// --add-opens=javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
 
-		program = (Program)FxToolkit.setupApplication( Program.class, ProgramTestConfig.getParameterValues() );
+		program = (Xenon)FxToolkit.setupApplication( Xenon.class, ProgramTestConfig.getParameterValues() );
 		program.register( ProgramEvent.ANY, programWatcher = new EventWatcher( ProgramTestConfig.TIMEOUT ) );
 		Fx.waitForWithExceptions( ProgramTestConfig.TIMEOUT );
 		// NOTE Thread.yield() is helpful but not consistent
@@ -121,7 +121,7 @@ public abstract class BaseXenonUiTestCase extends ApplicationTest {
 		Fx.waitForWithExceptions( 5, TimeUnit.SECONDS );
 	}
 
-	protected Program getProgram() {
+	protected Xenon getProgram() {
 		return program;
 	}
 

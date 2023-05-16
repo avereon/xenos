@@ -1,7 +1,7 @@
 package com.avereon.zerra;
 
 import com.avereon.util.OperatingSystem;
-import com.avereon.xenon.Program;
+import com.avereon.xenon.Xenon;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.util.logging.Level;
@@ -14,17 +14,17 @@ import java.util.logging.Level;
  */
 public abstract class BaseXenonTestCase {
 
-	protected Program program;
+	protected Xenon program;
 
 	@BeforeEach
 	protected void setup() throws Exception {
 		// Be sure that the OperatingSystem class is properly set
 		OperatingSystem.reset();
-		program = new Program();
+		program = new Xenon();
 		java.util.logging.Logger.getLogger( "" ).setLevel( Level.OFF );
 	}
 
-	protected Program getProgram() {
+	protected Xenon getProgram() {
 		return program;
 	}
 
