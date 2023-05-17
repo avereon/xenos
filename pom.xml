@@ -50,6 +50,7 @@
 
 		<!-- Runtime dependencies -->
 		<xenon.version>[1.6,)</xenon.version>
+		<xenon-junit5.version>[0.9-SNAPSHOT,)</xenon-junit5.version>
 		<openjfx.version>[19.0,)</openjfx.version>
 		<testfx.version>[4.0,)</testfx.version>
 	</properties>
@@ -60,6 +61,12 @@
 			<groupId>com.avereon</groupId>
 			<artifactId>xenon</artifactId>
 			<version>${xenon.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.avereon</groupId>
+			<artifactId>xenon-junit5</artifactId>
+			<version>${xenon-junit5.version}</version>
 		</dependency>
 
 		<dependency>
