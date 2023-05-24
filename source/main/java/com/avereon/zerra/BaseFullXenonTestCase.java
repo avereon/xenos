@@ -62,19 +62,12 @@ public abstract class BaseFullXenonTestCase extends BaseXenonTestCase {
 		//
 		// --add-opens=javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
 
-		long start = System.currentTimeMillis();
-
 		// NOTE This starts the application so all setup needs to be done by this point
 		setProgram( (Xenon)FxToolkit.setupApplication( Xenon.class, ProgramTestConfig.getParameterValues() ) );
 
 		getProgram().register( ProgramEvent.ANY, programWatcher = new EventWatcher( TIMEOUT ) );
 		programWatcher.waitForEvent( ProgramEvent.STARTED, TIMEOUT );
 		Fx.waitForWithExceptions( TIMEOUT );
-
-		long end = System.currentTimeMillis();
-		//		System.out.println( "time=" + start );
-		//		System.out.println( "stop=" + end );
-		System.out.println( "duration=" + (end - start) );
 
 		// Get initial memory use after program is started
 		initialMemoryUse = getMemoryUse();
