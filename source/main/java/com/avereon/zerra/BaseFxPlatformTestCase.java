@@ -12,9 +12,7 @@ public abstract class BaseFxPlatformTestCase extends BaseForAllTests {
 		// NOTE Do not create an application for tests that only need the FX platform
 
 		// Start the FX platform
-		System.out.println( "Before Fx.startup()" );
 		Fx.startup();
-		System.out.println( "After Fx.startup()" );
 	}
 
 }
