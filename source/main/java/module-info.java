@@ -5,7 +5,6 @@ module com.avereon.zerra {
 
 	// Both compile-time and run-time
 	requires com.avereon.xenon;
-	requires com.avereon.xenon.junit5;
 	requires java.logging;
 	requires javafx.graphics;
 	requires org.assertj.core;
@@ -14,4 +13,6 @@ module com.avereon.zerra {
 	requires org.testfx.junit5;
 
 	exports com.avereon.zerra;
+
+	opens com.avereon.zerra to org.testfx.junit5;
 }
