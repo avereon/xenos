@@ -2,10 +2,7 @@ package com.avereon.zerra;
 
 import com.avereon.event.EventWatcher;
 import com.avereon.log.Log;
-import com.avereon.util.FileUtil;
-import com.avereon.util.SizeUnitBase10;
-import com.avereon.util.SizeUnitBase2;
-import com.avereon.util.ThreadUtil;
+import com.avereon.util.*;
 import com.avereon.xenon.ProgramEvent;
 import com.avereon.xenon.Xenon;
 import com.avereon.xenon.test.ProgramTestConfig;
@@ -62,10 +59,14 @@ public abstract class BaseFullXenonTestCase extends BaseXenonTestCase {
 		//
 		// --add-opens=javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
 
-		// NOTE This starts the application so all setup needs to be done by this point
-		setProgram( (Xenon)FxToolkit.setupApplication( Xenon.class, ProgramTestConfig.getParameterValues() ) );
+		Xenon xenon = setProgram( new Xenon() );
+		xenon.setProgramParameters( Parameters.parse( ProgramTestConfig.getParameterValues() ) );
+		xenon.register( ProgramEvent.ANY, programWatcher = new EventWatcher( TIMEOUT ) );
 
-		getProgram().register( ProgramEvent.ANY, programWatcher = new EventWatcher( TIMEOUT ) );
+		// NOTE This starts the application so all setup needs to be done by this point
+		FxToolkit.setupApplication( () -> xenon );
+
+		// FIXME Program is stating too fast to catch started event :-)
 		programWatcher.waitForEvent( ProgramEvent.STARTED, TIMEOUT );
 		Fx.waitForWithExceptions( TIMEOUT );
 

@@ -51,8 +51,9 @@ public abstract class BaseXenonTestCase extends BaseForAllTests {
 		return program;
 	}
 
-	protected void setProgram( Xenon program ) {
+	protected Xenon setProgram( Xenon program ) {
 		this.program = program;
+		return program;
 	}
 
 	private void runHeadless() {
