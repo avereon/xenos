@@ -51,7 +51,7 @@
 		<!-- Runtime dependencies -->
 		<xenon.version>[1.6,)</xenon.version>
 		<xenon-junit5.version>[0.9-SNAPSHOT,)</xenon-junit5.version>
-		<openjfx.version>[19.0,)</openjfx.version>
+		<openjfx.version>20.0.1</openjfx.version>
 		<testfx.version>[4.0,)</testfx.version>
 	</properties>
 
