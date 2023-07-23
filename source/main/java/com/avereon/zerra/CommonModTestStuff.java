@@ -1,7 +1,6 @@
 package com.avereon.zerra;
 
 import com.avereon.product.ProductCard;
-import com.avereon.product.Rb;
 import com.avereon.xenon.Mod;
 import com.avereon.xenon.Xenon;
 
@@ -16,7 +15,6 @@ public interface CommonModTestStuff {
 		assertThat( program.getProductManager().isEnabled( card ) ).withFailMessage( "Module not ready for testing: " + mod ).isTrue();
 
 		mod.init( program, ProductCard.card( mod ) );
-		Rb.init( mod );
 
 		return mod;
 	}
