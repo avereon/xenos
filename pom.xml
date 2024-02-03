@@ -53,7 +53,7 @@
 		<xenon-junit5.version>[0.9-SNAPSHOT,)</xenon-junit5.version>
 		<openjfx.version>20.0.1</openjfx.version>
 		<!-- TestFX 4.0.17 broke the module -->
-		<testfx.version>4.0.16-alpha</testfx.version>
+		<testfx.version>4.0.17</testfx.version>
 	</properties>
 
 	<dependencies>
