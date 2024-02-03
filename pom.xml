@@ -13,7 +13,7 @@
 
 	<groupId>com.avereon</groupId>
 	<artifactId>zerra</artifactId>
-	<version>0.9-SNAPSHOT</version>
+	<version>0.9</version>
 	<packaging>jar</packaging>
 
 	<name>Zerra</name>
@@ -49,9 +49,7 @@
 		<java.version>17</java.version>
 
 		<!-- Runtime dependencies -->
-		<xenon.version>[1.6,)</xenon.version>
-		<xenon-junit5.version>[0.9-SNAPSHOT,)</xenon-junit5.version>
-		<openjfx.version>20.0.1</openjfx.version>
+		<xenon.version>[1.7,)</xenon.version>
 		<!-- TestFX 4.0.17 broke the module -->
 		<testfx.version>4.0.16-alpha</testfx.version>
 	</properties>
@@ -70,12 +68,6 @@
 			<version>${assertj.version}</version>
 			<scope>compile</scope>
 		</dependency>
-
-		<!--		<dependency>-->
-		<!--			<groupId>org.openjfx</groupId>-->
-		<!--			<artifactId>javafx-controls</artifactId>-->
-		<!--			<version>${openjfx.version}</version>-->
-		<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
