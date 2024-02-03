@@ -13,7 +13,7 @@
 
 	<groupId>com.avereon</groupId>
 	<artifactId>zerra</artifactId>
-	<version>0.9-SNAPSHOT</version>
+	<version>0.9</version>
 	<packaging>jar</packaging>
 
 	<name>Zerra</name>
@@ -49,7 +49,7 @@
 		<java.version>17</java.version>
 
 		<!-- Runtime dependencies -->
-		<xenon.version>[1.6,)</xenon.version>
+		<xenon.version>[1.7,)</xenon.version>
 		<!-- TestFX 4.0.17 broke the module -->
 		<testfx.version>4.0.16-alpha</testfx.version>
 	</properties>
