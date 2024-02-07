@@ -23,8 +23,9 @@ env:
 
   DISPLAY: ":99"
   GITHUB_REF: ${{ github.ref }}
-  # Needs to stay at a version compatible with all projects and the website
-  JAVA_VERSION: "17"
+  # Needs to be the same version as Xenon
+  # Keep consistent with the project POM
+  JAVA_VERSION: "21"
   MAVEN_PARMS: "-B -U -V --settings .github/settings.xml --file pom.xml"
   XVFB_PARMS: "-screen 0 1920x1080x24 -nolisten unix"
 

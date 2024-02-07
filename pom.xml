@@ -44,9 +44,9 @@
 		<product-identifier>${project.artifactId}</product-identifier>
 		<project-timestamp>${maven.build.timestamp}</project-timestamp>
 
-		<!-- Needs to stay at a version compatible with all projects and the website -->
+		<!-- Needs to be the same version as Xenon -->
 		<!-- Keep consistent with the CI pipeline -->
-		<java.version>17</java.version>
+		<java.version>21</java.version>
 
 		<!-- Runtime dependencies -->
 		<xenon.version>[1.6,)</xenon.version>
