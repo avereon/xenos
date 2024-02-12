@@ -95,10 +95,10 @@
 			<version>${testfx.version}</version>
 			<scope>compile</scope>
 			<exclusions>
-				<!-- Exclude the junit-jupiter-api, it is already available-->
+				<!-- Exclude the junit-jupiter libraries, they are already available-->
 				<exclusion>
 					<groupId>org.junit.jupiter</groupId>
-					<artifactId>junit-jupiter-api</artifactId>
+					<artifactId>*</artifactId>
 				</exclusion>
 				<!-- Exclude the openjfx libraries, they are already available -->
 				<exclusion>
