@@ -4,6 +4,7 @@ import com.avereon.product.ProductCard;
 import com.avereon.xenon.Mod;
 import org.junit.jupiter.api.BeforeEach;
 
+// FIXME This should not extend BaseFullXenonTestCase in order to be a unit test base class
 public class BaseModTestCase<T extends Mod> extends BaseFullXenonTestCase {
 
 	private final Class<T> type;
