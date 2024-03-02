@@ -1,15 +1,15 @@
 package com.avereon.zerra;
 
 import com.avereon.product.ProductCard;
-import com.avereon.xenon.Mod;
+import com.avereon.xenon.Module;
 import org.junit.jupiter.api.BeforeEach;
 
 // FIXME This should not extend BaseFullXenonTestCase in order to be a unit test base class
-public class BaseModTestCase<T extends Mod> extends BaseFullXenonTestCase {
+public class BaseModTestCase<T extends Module> extends BaseFullXenonTestCase {
 
 	private final Class<T> type;
 
-	private Mod mod;
+	private Module module;
 
 	protected BaseModTestCase( Class<T> type ) {
 		this.type = type;
@@ -18,11 +18,11 @@ public class BaseModTestCase<T extends Mod> extends BaseFullXenonTestCase {
 	@BeforeEach
 	protected void setup() throws Exception{
 		super.setup();
-		this.mod = CommonModTestStuff.initMod( getProgram(), ProductCard.card( type ) );
+		this.module = CommonModTestStuff.initMod( getProgram(), ProductCard.card( type ) );
 	}
 
-	protected Mod getMod() {
-		return mod;
+	protected Module getMod() {
+		return module;
 	}
 
 }
