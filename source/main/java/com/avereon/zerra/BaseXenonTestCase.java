@@ -26,11 +26,13 @@ public abstract class BaseXenonTestCase extends BaseForAllTests {
 
 	private Xenon program;
 
+	static {
+		runHeadless();
+	}
+
 	@BeforeEach
 	protected void setup() throws Exception {
 		super.setup();
-
-		runHeadless();
 
 		// Remove the existing program data folder
 		String suffix = "-" + ProgramMode.TEST;
@@ -56,7 +58,7 @@ public abstract class BaseXenonTestCase extends BaseForAllTests {
 		return program;
 	}
 
-	private void runHeadless() {
+	private static void runHeadless() {
 		// Set java.awt.headless to true when running tests in headless mode
 		// This is not needed if using Monocle, but just to be safe
 		System.setProperty( "java.awt.headless", "true" );
