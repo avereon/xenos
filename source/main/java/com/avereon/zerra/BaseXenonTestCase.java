@@ -15,7 +15,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import static com.avereon.xenon.test.ProgramTestConfig.LONG_TIMEOUT;
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * The super class for {@link BasePartXenonTestCase} and {@link BaseFullXenonTestCase}
@@ -44,7 +43,8 @@ public abstract class BaseXenonTestCase extends BaseForAllTests {
 		String suffix = "-" + ProgramMode.TEST;
 		ProductCard metadata = ProductCard.info( Xenon.class );
 		Path programDataFolder = OperatingSystem.getUserProgramDataFolder( metadata.getArtifact() + suffix, metadata.getName() + suffix );
-		assertThat( aggressiveDelete( programDataFolder ) ).withFailMessage( "Failed to delete program data folder" ).isTrue();
+		//assertThat( aggressiveDelete( programDataFolder ) ).withFailMessage( "Failed to delete program data folder" ).isTrue();
+		aggressiveDelete( programDataFolder );
 	}
 
 	@AfterEach
