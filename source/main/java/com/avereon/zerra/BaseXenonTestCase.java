@@ -43,8 +43,13 @@ public abstract class BaseXenonTestCase extends BaseForAllTests {
 		String suffix = "-" + ProgramMode.TEST;
 		ProductCard metadata = ProductCard.info( Xenon.class );
 		Path programDataFolder = OperatingSystem.getUserProgramDataFolder( metadata.getArtifact() + suffix, metadata.getName() + suffix );
-		//assertThat( aggressiveDelete( programDataFolder ) ).withFailMessage( "Failed to delete program data folder" ).isTrue();
-		aggressiveDelete( programDataFolder );
+
+		// Try to clean up the program data folder, but don't fail if we can't
+		try {
+			FileUtil.delete( programDataFolder );
+		} catch( IOException exception ) {
+			// Ignore
+		}
 	}
 
 	@AfterEach
