@@ -1,9 +1,10 @@
 package com.avereon.zerra;
 
 import com.avereon.product.ProductCard;
+import com.avereon.product.Rb;
 import com.avereon.settings.MapSettings;
-import com.avereon.xenon.*;
 import com.avereon.xenon.Module;
+import com.avereon.xenon.*;
 import com.avereon.xenon.asset.AssetManager;
 import com.avereon.xenon.index.IndexService;
 import com.avereon.xenon.notice.NoticeManager;
@@ -14,7 +15,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.lenient;
 
 @ExtendWith( MockitoExtension.class )
@@ -22,6 +22,10 @@ public class BaseModTestCase<T extends Module> extends BasePartXenonTestCase {
 
 	// Keep this static so it is shared across all tests
 	protected static Module module;
+
+	protected static ProductCard programCard;
+
+	protected static ActionLibrary actionLibrary;
 
 	@Mock
 	protected Xenon program;
@@ -31,9 +35,6 @@ public class BaseModTestCase<T extends Module> extends BasePartXenonTestCase {
 
 	@Mock
 	protected IconLibrary iconLibrary;
-
-	@Mock
-	protected ActionLibrary actionLibrary;
 
 	@Mock
 	protected AssetManager assetManager;
@@ -57,26 +58,21 @@ public class BaseModTestCase<T extends Module> extends BasePartXenonTestCase {
 	}
 
 	@BeforeEach
-	protected void setup() throws Exception{
+	protected void setup() throws Exception {
 		super.setup();
 
+		if( programCard == null ) programCard = ProductCard.info( program.getClass() );
+		lenient().when( program.getCard() ).thenReturn( programCard );
+		Rb.init( program );
 		lenient().when( program.getTaskManager() ).thenReturn( taskManager );
 		lenient().when( program.getIconLibrary() ).thenReturn( iconLibrary );
+		if( actionLibrary == null ) actionLibrary = new ActionLibrary( program );
 		lenient().when( program.getActionLibrary() ).thenReturn( actionLibrary );
 		lenient().when( program.getAssetManager() ).thenReturn( assetManager );
 		lenient().when( program.getSettingsManager() ).thenReturn( settingsManager );
 		lenient().when( program.getToolManager() ).thenReturn( toolManager );
 		lenient().when( program.getIndexService() ).thenReturn( indexService );
 		lenient().when( program.getNoticeManager() ).thenReturn( noticeManager );
-
-		lenient().when( actionLibrary.getAction( anyString() ) ).thenAnswer( i -> {
-			String name = String.valueOf( i.getArguments()[ 0 ] );
-			ActionProxy action = new ActionProxy();
-			action.setName( name );
-			// FIXME Needs to move back to BaseCartesiaUnitTest
-			if( "select-window-contain".equals( name ) ) action.setCommand( "ws" );
-			return action;
-		} );
 
 		lenient().when( settingsManager.getProductSettings( any( ProductCard.class ) ) ).thenReturn( new MapSettings() );
 
