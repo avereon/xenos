@@ -11,6 +11,8 @@ module com.avereon.zerra {
 	requires org.junit.jupiter.api;
 	requires org.testfx;
 	requires org.testfx.junit5;
+	requires org.mockito.junit.jupiter;
+	requires org.mockito;
 
 	exports com.avereon.zerra;
 

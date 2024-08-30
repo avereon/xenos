@@ -51,6 +51,7 @@
 		<!-- Runtime dependencies -->
 		<xenon.version>1.8-SNAPSHOT</xenon.version>
 		<testfx.version>4.0.18</testfx.version>
+		<mockito.version>5.12.0</mockito.version>
 	</properties>
 
 	<dependencies>
@@ -65,21 +66,18 @@
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
 			<version>${assertj.version}</version>
-			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>${junit.version}</version>
-			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.testfx</groupId>
 			<artifactId>testfx-core</artifactId>
 			<version>${testfx.version}</version>
-			<scope>provided</scope>
 			<exclusions>
 				<!-- Exclude the openjfx libraries, they are already available -->
 				<exclusion>
@@ -93,7 +91,6 @@
 			<groupId>org.testfx</groupId>
 			<artifactId>testfx-junit5</artifactId>
 			<version>${testfx.version}</version>
-			<scope>compile</scope>
 			<exclusions>
 				<!-- Exclude the junit-jupiter libraries, they are already available-->
 				<exclusion>
@@ -106,6 +103,18 @@
 					<artifactId>*</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>${mockito.version}</version>
 		</dependency>
 
 	</dependencies>
