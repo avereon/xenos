@@ -8,12 +8,12 @@
 	<parent>
 		<groupId>com.avereon.pom</groupId>
 		<artifactId>jar</artifactId>
-		<version>3.5.3</version>
+		<version>3.5.4</version>
 	</parent>
 
 	<groupId>com.avereon</groupId>
 	<artifactId>zerra</artifactId>
-	<version>0.9-SNAPSHOT</version>
+	<version>0.10-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Zerra</name>
@@ -44,16 +44,15 @@
 		<product-identifier>${project.artifactId}</product-identifier>
 		<project-timestamp>${maven.build.timestamp}</project-timestamp>
 
-		<!-- Needs to stay at a version compatible with all projects and the website -->
+		<!-- Needs to be the same version as Xenon -->
 		<!-- Keep consistent with the CI pipeline -->
-		<java.version>17</java.version>
+		<java.version>21</java.version>
 
 		<!-- Runtime dependencies -->
-		<xenon.version>[1.6,)</xenon.version>
-		<xenon-junit5.version>[0.9-SNAPSHOT,)</xenon-junit5.version>
+		<xenon.version>1.8-SNAPSHOT</xenon.version>
 		<openjfx.version>20.0.1</openjfx.version>
-		<!-- TestFX 4.0.17 broke the module -->
-		<testfx.version>4.0.17</testfx.version>
+		<testfx.version>4.0.18</testfx.version>
+		<mockito.version>5.13.0</mockito.version>
 	</properties>
 
 	<dependencies>
@@ -68,27 +67,18 @@
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
 			<version>${assertj.version}</version>
-			<scope>compile</scope>
 		</dependency>
-
-		<!--		<dependency>-->
-		<!--			<groupId>org.openjfx</groupId>-->
-		<!--			<artifactId>javafx-controls</artifactId>-->
-		<!--			<version>${openjfx.version}</version>-->
-		<!--		</dependency>-->
 
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>${junit.version}</version>
-			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.testfx</groupId>
 			<artifactId>testfx-core</artifactId>
 			<version>${testfx.version}</version>
-			<scope>provided</scope>
 			<exclusions>
 				<!-- Exclude the openjfx libraries, they are already available -->
 				<exclusion>
@@ -102,12 +92,11 @@
 			<groupId>org.testfx</groupId>
 			<artifactId>testfx-junit5</artifactId>
 			<version>${testfx.version}</version>
-			<scope>compile</scope>
 			<exclusions>
-				<!-- Exclude the junit-jupiter-api, it is already available-->
+				<!-- Exclude the junit-jupiter libraries, they are already available-->
 				<exclusion>
 					<groupId>org.junit.jupiter</groupId>
-					<artifactId>junit-jupiter-api</artifactId>
+					<artifactId>*</artifactId>
 				</exclusion>
 				<!-- Exclude the openjfx libraries, they are already available -->
 				<exclusion>
@@ -115,6 +104,18 @@
 					<artifactId>*</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>${mockito.version}</version>
 		</dependency>
 
 	</dependencies>
