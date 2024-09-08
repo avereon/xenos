@@ -66,7 +66,6 @@ public abstract class BaseFullXenonTestCase extends BaseXenonTestCase {
 		// NOTE This starts the application so all setup needs to be done by this point
 		FxToolkit.setupApplication( () -> xenon );
 
-		// FIXME Program is stating too fast to catch started event :-)
 		programWatcher.waitForEvent( ProgramEvent.STARTED, LONG_TIMEOUT );
 		Fx.waitForWithExceptions( LONG_TIMEOUT );
 

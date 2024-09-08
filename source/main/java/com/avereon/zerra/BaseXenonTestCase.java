@@ -32,8 +32,6 @@ public abstract class BaseXenonTestCase extends BaseForAllTests {
 	protected void setup() throws Exception {
 		super.setup();
 
-		program = new Xenon();
-
 		if( OperatingSystem.isWindows() ) {
 			System.setProperty( "jpackage.app-path", "C:\\Program Files\\Xenon\\Xenon.exe" );
 		} else {
@@ -51,6 +49,8 @@ public abstract class BaseXenonTestCase extends BaseForAllTests {
 		} catch( IOException exception ) {
 			// Ignore
 		}
+
+		program = new Xenon();
 	}
 
 	@AfterEach
