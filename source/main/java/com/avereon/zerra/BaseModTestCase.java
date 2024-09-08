@@ -8,6 +8,7 @@ import com.avereon.xenon.*;
 import com.avereon.xenon.asset.AssetManager;
 import com.avereon.xenon.index.IndexService;
 import com.avereon.xenon.notice.NoticeManager;
+import com.avereon.xenon.product.ProductManager;
 import com.avereon.xenon.task.TaskManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -73,6 +74,8 @@ public class BaseModTestCase<T extends Module> extends BasePartXenonTestCase {
 		lenient().when( program.getToolManager() ).thenReturn( toolManager );
 		lenient().when( program.getIndexService() ).thenReturn( indexService );
 		lenient().when( program.getNoticeManager() ).thenReturn( noticeManager );
+		ProductManager productManager = new ProductManager( program );
+		lenient().when( program.getProductManager() ).thenReturn( productManager );
 
 		lenient().when( settingsManager.getProductSettings( any( ProductCard.class ) ) ).thenReturn( new MapSettings() );
 
@@ -82,6 +85,12 @@ public class BaseModTestCase<T extends Module> extends BasePartXenonTestCase {
 			module.setParent( program );
 			module.startup();
 		}
+	}
+
+	@Override
+	protected Xenon getProgram() {
+		// Overridden to use the mock program
+		return program;
 	}
 
 	protected Module getMod() {

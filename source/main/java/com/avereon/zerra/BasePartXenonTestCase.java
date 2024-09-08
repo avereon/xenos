@@ -19,11 +19,9 @@ public abstract class BasePartXenonTestCase extends BaseXenonTestCase {
 		super.setup();
 
 		// Create the program
-		Xenon xenon = new Xenon();
+		Xenon xenon = getProgram();
 		xenon.setProgramParameters( Parameters.parse( ProgramTestConfig.getParameterValues() ) );
 		xenon.init();
-
-		setProgram( xenon );
 	}
 
 }
