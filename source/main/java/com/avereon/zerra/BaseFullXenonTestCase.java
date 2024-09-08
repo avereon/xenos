@@ -131,10 +131,6 @@ public abstract class BaseFullXenonTestCase extends BaseXenonTestCase {
 		Fx.waitForWithExceptions( 5, TimeUnit.SECONDS );
 	}
 
-	public Xenon getProgram() {
-		return (Xenon)super.getProgram();
-	}
-
 	protected EventWatcher getProgramEventWatcher() {
 		return programWatcher;
 	}
