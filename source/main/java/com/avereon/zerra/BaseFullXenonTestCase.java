@@ -76,16 +76,6 @@ public abstract class BaseFullXenonTestCase extends BaseXenonTestCase {
 			initialMemoryUse = getMemoryUse();
 		}
 
-		// Wait for the active workarea
-		// FIXME This should use an event listener to wait for the workarea
-		long activeWorkareaTimeLimit = System.currentTimeMillis() + TIMEOUT;
-		while( getProgram().getWorkspaceManager().getActiveWorkspace().getActiveWorkarea() == null && System.currentTimeMillis() < activeWorkareaTimeLimit ) {
-			ThreadUtil.pause( TIMEOUT );
-		}
-		// TODO Workareas do not have proper events yet
-		// getProgram().getWorkspaceManager().getActiveWorkspace().getStage().addEventHandler( javafx.event.Event.ANY, stageWatcher = new FxEventWatcher() );
-		// stageWatcher.waitForEvent( WorkareaSwitchedEvent.SWITCHED, QUICK_TIMEOUT );
-
 		assertThat( getProgram() ).withFailMessage( "Program is null" ).isNotNull();
 		assertThat( getProgram().getWorkspaceManager() ).withFailMessage( "Workspace manager is null" ).isNotNull();
 		assertThat( getProgram().getWorkspaceManager().getActiveWorkspace() ).withFailMessage( "Active workspace is null" ).isNotNull();
