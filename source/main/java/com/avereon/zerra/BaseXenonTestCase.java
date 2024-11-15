@@ -6,6 +6,7 @@ import com.avereon.util.FileUtil;
 import com.avereon.util.OperatingSystem;
 import com.avereon.util.ThreadUtil;
 import com.avereon.xenon.ProgramSettings;
+import com.avereon.xenon.SettingsManager;
 import com.avereon.xenon.Xenon;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -56,11 +57,18 @@ public abstract class BaseXenonTestCase extends BaseForAllTests {
 
 	@AfterEach
 	protected void teardown() throws Exception {
-		// Clean up the settings
+		if( program == null ) return;
+
+		cleanupSettings();
+	}
+
+	private void cleanupSettings() {
+		SettingsManager settingsManager = program.getSettingsManager();
+		if( settingsManager == null ) return;
 
 		// This fixes the problem where unexpected workspaces were being restored
 		// and there was not an active workarea.
-		if( program != null ) program.getSettingsManager().getSettings( ProgramSettings.BASE ).delete();
+		settingsManager.getSettings( ProgramSettings.BASE ).delete();
 	}
 
 	protected Xenon getProgram() {
