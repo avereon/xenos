@@ -35,7 +35,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith( ApplicationExtension.class )
 public abstract class BaseFullXenonTestCase extends BaseXenonTestCase {
 
-	private static final long minInitialMemory = 8 * SizeUnitBase2.MiB.getSize();
+	/*
+	 * This limit is intentionally very small to detect when the JVM has actually
+	 * allocated the memory for the program.
+	 */
+	private static final long MIN_INITIAL_MEMORY = 8 * SizeUnitBase2.MiB.getSize();
 
 	private EventWatcher programWatcher;
 
@@ -72,7 +76,7 @@ public abstract class BaseFullXenonTestCase extends BaseXenonTestCase {
 		// Get initial memory use after program is started
 		initialMemoryUse = getMemoryUse();
 		long initialMemoryUseTimeLimit = System.currentTimeMillis() + TIMEOUT;
-		while( initialMemoryUse < minInitialMemory && System.currentTimeMillis() < initialMemoryUseTimeLimit ) {
+		while( initialMemoryUse < MIN_INITIAL_MEMORY && System.currentTimeMillis() < initialMemoryUseTimeLimit ) {
 			initialMemoryUse = getMemoryUse();
 		}
 
