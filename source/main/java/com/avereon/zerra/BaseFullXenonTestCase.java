@@ -84,9 +84,8 @@ public abstract class BaseFullXenonTestCase extends BaseXenonTestCase {
 		assertThat( getProgram().getWorkspaceManager() ).withFailMessage( "Workspace manager is null" ).isNotNull();
 		assertThat( getProgram().getWorkspaceManager().getActiveWorkspace() ).withFailMessage( "Active workspace is null" ).isNotNull();
 		assertThat( getProgram().getWorkspaceManager().getActiveWorkspace().getActiveWorkarea() ).withFailMessage( "Active workarea is null" ).isNotNull();
-		assertThat( getProgram().getWorkspaceManager().getActiveWorkspace().getActiveWorkarea().getWorkpane() ).withFailMessage( "Active workpane is null" ).isNotNull();
 
-		Workpane workpane = getProgram().getWorkspaceManager().getActiveWorkspace().getActiveWorkarea().getWorkpane();
+		Workpane workpane = getProgram().getWorkspaceManager().getActiveWorkspace().getActiveWorkarea();
 		workpane.addEventHandler( WorkpaneEvent.ANY, workpaneWatcher = new FxEventWatcher() );
 	}
 
@@ -128,11 +127,11 @@ public abstract class BaseFullXenonTestCase extends BaseXenonTestCase {
 		return programWatcher;
 	}
 
-	protected Workpane getWorkpane() {
-		return getProgram().getWorkspaceManager().getActiveWorkspace().getActiveWorkarea().getWorkpane();
+	protected Workpane getWorkarea() {
+		return getProgram().getWorkspaceManager().getActiveWorkspace().getActiveWorkarea();
 	}
 
-	protected FxEventWatcher getWorkpaneEventWatcher() {
+	protected FxEventWatcher getWorkareaEventWatcher() {
 		return workpaneWatcher;
 	}
 
