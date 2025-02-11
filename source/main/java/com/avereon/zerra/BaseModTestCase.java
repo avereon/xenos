@@ -8,7 +8,6 @@ import com.avereon.xenon.*;
 import com.avereon.xenon.asset.AssetManager;
 import com.avereon.xenon.index.IndexService;
 import com.avereon.xenon.notice.NoticeManager;
-import com.avereon.xenon.product.ProductManager;
 import com.avereon.xenon.task.TaskManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -79,8 +78,8 @@ public class BaseModTestCase<T extends Module> extends BasePartXenonTestCase {
 		lenient().when( settingsManager.getSettings( any( String.class ) ) ).thenReturn( new MapSettings() );
 		lenient().when( settingsManager.getProductSettings( any( ProductCard.class ) ) ).thenReturn( new MapSettings() );
 
-		ProductManager productManager = new ProductManager( program );
-		lenient().when( program.getProductManager() ).thenReturn( productManager );
+		//ProductManager productManager = getProgram().getProductManager();
+		//lenient().when( program.getProductManager() ).thenReturn( productManager );
 
 		if( module == null ) {
 			module = type.getDeclaredConstructor().newInstance();
