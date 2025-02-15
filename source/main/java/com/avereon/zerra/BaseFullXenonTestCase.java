@@ -64,7 +64,7 @@ public abstract class BaseFullXenonTestCase extends BaseXenonTestCase {
 		// --add-opens=javafx.graphics/com.sun.javafx.application=ALL-UNNAMED
 
 		Xenon xenon = getProgram();
-		xenon.setProgramParameters( Parameters.parse( ProgramTestConfig.getParameterValues() ) );
+		xenon.setProgramParameters( Parameters.parse( ProgramTestConfig.getParameters() ) );
 		xenon.register( ProgramEvent.ANY, programWatcher = new EventWatcher( LONG_TIMEOUT ) );
 
 		// NOTE This starts the application so all setup needs to be done by this point
