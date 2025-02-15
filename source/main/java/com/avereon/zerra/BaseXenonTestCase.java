@@ -1,13 +1,13 @@
 package com.avereon.zerra;
 
 import com.avereon.product.ProductCard;
-import com.avereon.product.ProgramMode;
 import com.avereon.util.FileUtil;
 import com.avereon.util.OperatingSystem;
 import com.avereon.util.ThreadUtil;
 import com.avereon.xenon.ProgramSettings;
 import com.avereon.xenon.SettingsManager;
 import com.avereon.xenon.Xenon;
+import com.avereon.xenon.XenonMode;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -41,7 +41,7 @@ public abstract class BaseXenonTestCase extends BaseForAllTests {
 		}
 
 		// Remove the existing program data folder
-		String suffix = "-" + ProgramMode.TEST;
+		String suffix = "-" + XenonMode.TEST;
 		ProductCard metadata = ProductCard.info( Xenon.class );
 		Path programDataFolder = OperatingSystem.getUserProgramDataFolder( metadata.getArtifact() + suffix, metadata.getName() + suffix );
 
