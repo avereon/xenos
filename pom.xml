@@ -17,7 +17,12 @@
 	<packaging>jar</packaging>
 
 	<name>Xenos</name>
-	<description>UX test utility library</description>
+	<description>
+		Xenos is the user interface test library provided for testing Xenon modules.
+		This library provides a set of test utilities and a test runner for running
+		modules in a test Xenon environment so module developers don't need to do it
+		for themselves. Xenos is compatible with Xenon 8.0 and above.
+	</description>
 	<inceptionYear>2020</inceptionYear>
 
 	<developers>
@@ -38,7 +43,7 @@
 	</repositories>
 
 	<properties>
-		<!-- Version numbers updated 07 Mar 2023 -->
+		<!-- Version numbers updated 28 Apr 2025 -->
 
 		<product-name>${project.name}</product-name>
 		<product-identifier>${project.artifactId}</product-identifier>
