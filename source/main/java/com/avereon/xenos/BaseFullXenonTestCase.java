@@ -1,4 +1,4 @@
-package com.avereon.zerra;
+package com.avereon.xenos;
 
 import com.avereon.event.EventWatcher;
 import com.avereon.log.Log;

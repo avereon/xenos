@@ -1,3 +1,3 @@
-package com.avereon.zerra;
+package com.avereon.xenos;
 
 public class BaseXenonUIT extends BaseFullXenonTestCase {}

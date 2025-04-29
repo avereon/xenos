@@ -1,4 +1,4 @@
-module com.avereon.zerra {
+module com.avereon.xenos {
 
 	// Compile-time only
 	requires static lombok;
@@ -14,7 +14,7 @@ module com.avereon.zerra {
 	requires org.mockito.junit.jupiter;
 	requires org.mockito;
 
-	exports com.avereon.zerra;
+	exports com.avereon.xenos;
 
-	opens com.avereon.zerra to org.testfx.junit5;
+	opens com.avereon.xenos to org.testfx.junit5;
 }

@@ -54,7 +54,7 @@
 		<java.version>21</java.version>
 
 		<!-- Runtime dependencies -->
-		<xenon.version>1.8-SNAPSHOT</xenon.version>
+		<xenon.version>1.9-SNAPSHOT</xenon.version>
 		<testfx.version>4.0.18</testfx.version>
 		<mockito.version>5.17.0</mockito.version>
 	</properties>

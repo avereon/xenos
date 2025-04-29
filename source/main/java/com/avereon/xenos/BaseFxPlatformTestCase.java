@@ -1,4 +1,4 @@
-package com.avereon.zerra;
+package com.avereon.xenos;
 
 import com.avereon.zarra.javafx.Fx;
 import org.junit.jupiter.api.BeforeEach;

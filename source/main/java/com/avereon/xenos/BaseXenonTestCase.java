@@ -1,4 +1,4 @@
-package com.avereon.zerra;
+package com.avereon.xenos;
 
 import com.avereon.product.ProductCard;
 import com.avereon.util.FileUtil;
