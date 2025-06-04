@@ -51,6 +51,9 @@ public class BaseModTestCase<T extends Module> extends BasePartXenonTestCase {
 	@Mock
 	protected NoticeManager noticeManager;
 
+	@Mock
+	protected WorkspaceManager workspaceManager;
+
 	private final Class<T> type;
 
 	protected BaseModTestCase( Class<T> type ) {
@@ -70,6 +73,7 @@ public class BaseModTestCase<T extends Module> extends BasePartXenonTestCase {
 		lenient().when( program.getActionLibrary() ).thenReturn( actionLibrary );
 		lenient().when( program.getAssetManager() ).thenReturn( assetManager );
 		lenient().when( program.getSettingsManager() ).thenReturn( settingsManager );
+		lenient().when( program.getWorkspaceManager() ).thenReturn( workspaceManager );
 		lenient().when( program.getToolManager() ).thenReturn( toolManager );
 		lenient().when( program.getIndexService() ).thenReturn( indexService );
 		lenient().when( program.getNoticeManager() ).thenReturn( noticeManager );
@@ -80,6 +84,8 @@ public class BaseModTestCase<T extends Module> extends BasePartXenonTestCase {
 
 		//ProductManager productManager = getProgram().getProductManager();
 		//lenient().when( program.getProductManager() ).thenReturn( productManager );
+		ThemeMetadata themeMetadata = new ThemeMetadata("test", "Test Theme", true, "file:/test");
+		lenient().when( workspaceManager.getThemeMetadata() ).thenReturn( themeMetadata );
 
 		if( module == null ) {
 			module = type.getDeclaredConstructor().newInstance();
