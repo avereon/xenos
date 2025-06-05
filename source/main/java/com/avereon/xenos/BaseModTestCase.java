@@ -3,12 +3,13 @@ package com.avereon.xenos;
 import com.avereon.product.ProductCard;
 import com.avereon.product.Rb;
 import com.avereon.settings.MapSettings;
-import com.avereon.xenon.Module;
 import com.avereon.xenon.*;
+import com.avereon.xenon.Module;
 import com.avereon.xenon.asset.AssetManager;
 import com.avereon.xenon.index.IndexService;
 import com.avereon.xenon.notice.NoticeManager;
 import com.avereon.xenon.task.TaskManager;
+import javafx.beans.property.SimpleStringProperty;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -79,14 +80,20 @@ public class BaseModTestCase<T extends Module> extends BasePartXenonTestCase {
 		lenient().when( program.getNoticeManager() ).thenReturn( noticeManager );
 		lenient().when( program.getSettings() ).thenCallRealMethod();
 
+		// Settings Manager
 		lenient().when( settingsManager.getSettings( any( String.class ) ) ).thenReturn( new MapSettings() );
 		lenient().when( settingsManager.getProductSettings( any( ProductCard.class ) ) ).thenReturn( new MapSettings() );
 
+		// Product Manager
 		//ProductManager productManager = getProgram().getProductManager();
 		//lenient().when( program.getProductManager() ).thenReturn( productManager );
+
+		// Workspace Manager
 		ThemeMetadata themeMetadata = new ThemeMetadata("test", "Test Theme", true, "file:/test");
 		lenient().when( workspaceManager.getThemeMetadata() ).thenReturn( themeMetadata );
+		lenient().when( workspaceManager.themeIdProperty() ).thenReturn( new SimpleStringProperty( WorkspaceManager.DEFAULT_THEME_ID ) );
 
+		// Load the module if it has not already been loaded
 		if( module == null ) {
 			module = type.getDeclaredConstructor().newInstance();
 			module.init( program, module.getCard() );
