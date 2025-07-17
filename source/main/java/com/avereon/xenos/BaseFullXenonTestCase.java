@@ -28,7 +28,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * This class is a duplicate of com.avereon.zenna.BaseXenonUiTestCase which is
  * intended to be visible for mod testing but is not available to Xenon to
  * avoid a circular dependency. Attempts at making this
- * class publicly available have run in to various challenges with the most
+ * class publicly available have run in to various challenges, with the most
  * recent being with Surefire not putting JUnit 5 on the module path at test
  * time if it is also on the module path at compile time.
  */
@@ -143,6 +143,10 @@ public abstract class BaseFullXenonTestCase extends BaseXenonTestCase {
 		return 0.50;
 	}
 
+	protected double getAllowedMemoryTotal() {
+		return 64;
+	}
+
 	private long getMemoryUse() {
 		System.gc();
 
@@ -167,16 +171,20 @@ public abstract class BaseFullXenonTestCase extends BaseXenonTestCase {
 		//System.out.printf( "Memory use: %s -> %s = %s %s%n", FileUtil.getHumanSizeBase2( initialMemoryUse ), FileUtil.getHumanSizeBase2( finalMemoryUse ), FileUtil.getHumanSizeBase2( increaseSize ), direction );
 
 		if( initialMemoryUse > SizeUnitBase2.MiB.getSize() && increaseAbsolute > getAllowedMemoryGrowthSize() ) {
-			throw new AssertionFailedError( String.format( "Absolute memory growth too large %s -> %s : %s",
+			throw new AssertionFailedError( String.format(
+				"Absolute memory growth too large %s -> %s > %s : %s",
 				FileUtil.getHumanSizeBase2( initialMemoryUse ),
 				FileUtil.getHumanSizeBase2( finalMemoryUse ),
+				getAllowedMemoryGrowthSize(),
 				FileUtil.getHumanSizeBase2( increaseSize )
 			) );
 		}
 		if( initialMemoryUse > SizeUnitBase2.MiB.getSize() && increasePercent > getAllowedMemoryGrowthPercent() ) {
-			throw new AssertionFailedError( String.format( "Relative memory growth too large %s -> %s : %.2f%%",
+			throw new AssertionFailedError( String.format(
+				"Relative memory growth too large %s -> %s > %s : %.2f%%",
 				FileUtil.getHumanSizeBase2( initialMemoryUse ),
 				FileUtil.getHumanSizeBase2( finalMemoryUse ),
+				getAllowedMemoryGrowthPercent() * 100,
 				increasePercent * 100
 			) );
 		}
