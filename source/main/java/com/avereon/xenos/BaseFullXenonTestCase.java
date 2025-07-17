@@ -39,7 +39,7 @@ public abstract class BaseFullXenonTestCase extends BaseXenonTestCase {
 	 * This limit is intentionally very small to detect when the JVM has actually
 	 * allocated the memory for the program.
 	 */
-	private static final long MIN_INITIAL_MEMORY = 32 * SizeUnitBase2.MiB.getSize();
+	protected static final long MIN_INITIAL_MEMORY = 32 * SizeUnitBase2.MiB.getSize();
 
 	private EventWatcher programWatcher;
 
