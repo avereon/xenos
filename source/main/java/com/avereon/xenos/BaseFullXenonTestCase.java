@@ -39,7 +39,9 @@ public abstract class BaseFullXenonTestCase extends BaseXenonTestCase {
 	 * This limit is intentionally very small to detect when the JVM has actually
 	 * allocated the memory for the program.
 	 */
-	protected static final long MIN_INITIAL_MEMORY = 32 * SizeUnitBase2.MiB.getSize();
+	protected static final long MIN_INITIAL_MEMORY_MiB = 8;
+
+	protected static final long MIN_INITIAL_MEMORY_B = MIN_INITIAL_MEMORY_MiB * SizeUnitBase2.MiB.getSize();
 
 	private EventWatcher programWatcher;
 
@@ -76,7 +78,7 @@ public abstract class BaseFullXenonTestCase extends BaseXenonTestCase {
 		// Get initial memory use after program is started
 		initialMemoryUse = getMemoryUse();
 		long initialMemoryUseTimeLimit = System.currentTimeMillis() + TIMEOUT;
-		while( initialMemoryUse < MIN_INITIAL_MEMORY && System.currentTimeMillis() < initialMemoryUseTimeLimit ) {
+		while( initialMemoryUse < MIN_INITIAL_MEMORY_B && System.currentTimeMillis() < initialMemoryUseTimeLimit ) {
 			initialMemoryUse = getMemoryUse();
 		}
 
