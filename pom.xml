@@ -51,7 +51,7 @@
 
 		<!-- Needs to be the same version as Xenon -->
 		<!-- Keep consistent with the CI pipeline -->
-		<java.version>22</java.version>
+		<java.version>24</java.version>
 
 		<!-- Runtime dependencies -->
 		<xenon.version>1.9-SNAPSHOT</xenon.version>
