@@ -5,7 +5,7 @@ import com.avereon.product.Rb;
 import com.avereon.settings.MapSettings;
 import com.avereon.xenon.*;
 import com.avereon.xenon.Module;
-import com.avereon.xenon.asset.AssetManager;
+import com.avereon.xenon.asset.ResourceManager;
 import com.avereon.xenon.index.IndexService;
 import com.avereon.xenon.notice.NoticeManager;
 import com.avereon.xenon.task.TaskManager;
@@ -38,7 +38,7 @@ public class BaseModTestCase<T extends Module> extends BasePartXenonTestCase {
 	protected IconLibrary iconLibrary;
 
 	@Mock
-	protected AssetManager assetManager;
+	protected ResourceManager resourceManager;
 
 	@Mock
 	protected SettingsManager settingsManager;
@@ -72,7 +72,7 @@ public class BaseModTestCase<T extends Module> extends BasePartXenonTestCase {
 		lenient().when( program.getIconLibrary() ).thenReturn( iconLibrary );
 		if( actionLibrary == null ) actionLibrary = new ActionLibrary( program );
 		lenient().when( program.getActionLibrary() ).thenReturn( actionLibrary );
-		lenient().when( program.getAssetManager() ).thenReturn( assetManager );
+		lenient().when( program.getResourceManager() ).thenReturn( resourceManager );
 		lenient().when( program.getSettingsManager() ).thenReturn( settingsManager );
 		lenient().when( program.getWorkspaceManager() ).thenReturn( workspaceManager );
 		lenient().when( program.getToolManager() ).thenReturn( toolManager );
