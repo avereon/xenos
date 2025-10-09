@@ -5,7 +5,7 @@ import com.avereon.product.Rb;
 import com.avereon.settings.MapSettings;
 import com.avereon.xenon.*;
 import com.avereon.xenon.Module;
-import com.avereon.xenon.asset.ResourceManager;
+import com.avereon.xenon.resource.ResourceManager;
 import com.avereon.xenon.index.IndexService;
 import com.avereon.xenon.notice.NoticeManager;
 import com.avereon.xenon.task.TaskManager;
